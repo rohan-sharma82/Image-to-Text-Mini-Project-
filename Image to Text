@@ -1,0 +1,15 @@
+
+!sudo apt install tesseract-ocr
+!pip install pytesseract
+!pip install Pillow==9.0.0
+     
+
+from google.colab import files
+
+
+import pytesseract
+from PIL import Image
+custom_config = r'-c preserve_interword_spaces=1 --psm 6'
+extractedInformation = pytesseract.image_to_string(Image.open('/content/Sample image.png'),config=custom_config)
+
+print(extractedInformation)
